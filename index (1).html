@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manoj Onkar — Reinventing Management</title>
+<meta name="description" content="Manoj Onkar — OD Consultant, Independent Director & Author. Founder, Management Innovations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e0e0e;--charcoal:#1a1a1a;--dark:#232323;--white:#ffffff;
+  --off:#f7f6f3;--warm:#ede9e2;--mid:#9a9590;--light:#c8c3bb;
+  --gold:#b8955a;--gold-l:#d4b07a;--gold-xl:#ecdcbc;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--charcoal);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:66px;background:rgba(10,10,10,0.92);border-bottom:1px solid rgba(184,149,90,.15);backdrop-filter:blur(12px)}
+.logo{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--white);text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:1.6rem;list-style:none}
+.nav-links a{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-btn{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--charcoal);background:var(--gold);padding:.52rem 1.4rem;text-decoration:none;transition:background .2s}
+.nav-btn:hover{background:var(--gold-l)}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  padding-top:66px;
+  position:relative;
+  overflow:hidden;
+  background:var(--charcoal);
+}
+
+/* Left — photo fills full height */
+.hero-photo-col{
+  position:relative;
+  overflow:hidden;
+}
+.hero-photo-col img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+  display:block;
+  filter:brightness(.92) contrast(1.05);
+}
+/* Gold overlay stripe at bottom of photo */
+.hero-photo-col::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:4px;
+  background:var(--gold);
+}
+
+/* Right — text content */
+.hero-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:5% 8% 5% 7%;
+  position:relative;
+  background:var(--charcoal);
+}
+/* Subtle decorative rings */
+.hero-content::before{
+  content:'';position:absolute;
+  top:-120px;right:-120px;
+  width:500px;height:500px;border-radius:50%;
+  border:1px solid rgba(184,149,90,.07);pointer-events:none;
+}
+.hero-content::after{
+  content:'';position:absolute;
+  bottom:-80px;left:-80px;
+  width:300px;height:300px;border-radius:50%;
+  border:1px solid rgba(184,149,90,.05);pointer-events:none;
+}
+.eyebrow{
+  font-size:.63rem;font-weight:500;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;
+  display:flex;align-items:center;gap:.8rem;
+}
+.eyebrow::before{
+  content:'';display:inline-block;
+  width:28px;height:1px;background:var(--gold);
+}
+.hero-name{
+  font-family:var(--serif);
+  font-size:clamp(3.2rem,5.5vw,5.8rem);
+  font-weight:600;color:var(--white);
+  line-height:.95;letter-spacing:-.01em;
+  margin-bottom:1.4rem;
+}
+.hero-name span{
+  display:block;
+  color:var(--gold);
+  font-size:clamp(1.8rem,3vw,3rem);
+  font-weight:400;font-style:italic;
+  letter-spacing:.02em;
+  margin-top:.3rem;
+}
+.hero-rule{width:44px;height:2px;background:var(--gold);margin-bottom:2rem}
+.hero-tag{
+  font-family:var(--serif);
+  font-size:clamp(1rem,1.5vw,1.22rem);
+  color:rgba(255,255,255,.55);
+  font-style:italic;line-height:1.6;
+  max-width:400px;margin-bottom:2.5rem;
+}
+.hero-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:3rem}
+.pill{
+  font-size:.62rem;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold-l);
+  border:1px solid rgba(184,149,90,.28);padding:.36rem .9rem;
+}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:rgba(255,255,255,.06);
+  margin-bottom:2.5rem;
+}
+.hstat{
+  background:rgba(255,255,255,.03);
+  padding:1.2rem 1.3rem;
+}
+.hstat-n{
+  font-family:var(--serif);font-size:2rem;font-weight:600;
+  color:var(--white);line-height:1;margin-bottom:.2rem;
+}
+.hstat-n em{font-style:normal;color:var(--gold);font-size:1.3rem}
+.hstat-l{font-size:.63rem;color:rgba(255,255,255,.38);letter-spacing:.09em;text-transform:uppercase}
+.hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-gold{
+  background:var(--gold);color:var(--charcoal);
+  padding:.75rem 1.8rem;font-size:.7rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;
+  text-decoration:none;transition:background .2s;
+}
+.btn-gold:hover{background:var(--gold-l)}
+.btn-outline{
+  border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);
+  padding:.75rem 1.8rem;font-size:.7rem;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;
+  text-decoration:none;transition:all .2s;
+}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* Scroll indicator */
+.scroll-hint{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  opacity:.3;animation:bob 2s ease-in-out infinite;
+}
+.scroll-hint span{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.scroll-hint svg{width:16px;height:16px;stroke:var(--gold);fill:none}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(5px)}}
+</style>
+
+<style>
+/* SECTION SHELL */
+section{padding:6rem 9%}
+.sec-label{font-size:.64rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.sec-title{font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,3rem);font-weight:600;color:var(--charcoal);line-height:1.1;margin-bottom:1.3rem}
+.sec-rule{width:38px;height:2px;background:var(--gold);margin-bottom:2.5rem}
+.sec-title--white{color:var(--white)}
+.sec-label--light{color:var(--gold-l)}
+
+/* ABOUT */
+#about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr;gap:0}
+.photo-wrap{position:relative}
+.photo-box{width:100%;aspect-ratio:3/4;position:relative;overflow:hidden;background:var(--charcoal)}
+.about-photo{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.badge{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--charcoal);padding:1.4rem;text-align:center;width:110px}
+.badge-n{font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--gold);display:block;line-height:1}
+.badge-l{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.3rem;display:block}
+.about-body p{font-size:.91rem;color:#444;margin-bottom:1.1rem;line-height:1.82}
+.about-body strong{color:var(--charcoal);font-weight:600}
+.clients-label{font-size:.64rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--mid);margin:2rem 0 .8rem}
+.clients-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--warm)}
+.client-chip{background:var(--white);padding:.85rem 1rem;font-size:.79rem;color:#555}
+.client-chip::before{content:'→ ';color:var(--gold);font-size:.68rem}
+.purpose-values{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--warm);margin-top:2rem}
+.pv-box{padding:1.4rem 1.6rem}
+.pv-box:first-child{background:var(--white)}
+.pv-box:last-child{background:var(--off)}
+.pv-label{font-size:.63rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.pv-text{font-family:var(--serif);font-size:1rem;color:var(--charcoal);font-style:italic;line-height:1.5}
+.pv-vals{font-size:.81rem;color:#555;line-height:1.95}
+
+/* SERVICES */
+#services{background:var(--charcoal)}
+.svc-intro{font-family:var(--serif);font-size:1.08rem;color:rgba(255,255,255,.5);font-style:italic;max-width:620px;margin-bottom:3.5rem;line-height:1.65}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.svc-row2{margin-top:2px}
+.svc-card{background:#202020;padding:2.2rem 1.8rem;position:relative;transition:background .3s}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.svc-card:hover{background:#252525}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-num{font-family:var(--serif);font-size:3rem;color:rgba(184,149,90,.1);font-weight:600;line-height:1;margin-bottom:.7rem}
+.svc-name{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--white);line-height:1.2;margin-bottom:.35rem}
+.svc-sub{font-size:.62rem;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.1rem;font-weight:500}
+.svc-desc{font-size:.84rem;color:rgba(255,255,255,.42);line-height:1.75;margin-bottom:1.4rem}
+.svc-list{list-style:none}
+.svc-list li{font-size:.76rem;color:rgba(255,255,255,.32);padding:.38rem 0;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:flex-start;gap:.5rem}
+.svc-list li::before{content:'→';color:var(--gold);font-size:.7rem;flex-shrink:0;margin-top:.15rem}
+
+/* 8 LENSES */
+#lenses{background:var(--off)}
+.lenses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.lens-card{background:var(--white);padding:1.8rem 1.6rem;border-top:3px solid transparent;transition:border-color .3s}
+.lens-card:hover{border-color:var(--gold)}
+.lens-num{font-family:var(--serif);font-size:2.2rem;color:var(--gold-xl);font-weight:600;line-height:1;margin-bottom:.5rem}
+.lens-name{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--charcoal);margin-bottom:.5rem;line-height:1.2}
+.lens-desc{font-size:.82rem;color:#555;line-height:1.72}
+
+/* BOOK */
+#book{background:var(--white)}
+.book-grid{display:grid;grid-template-columns:340px 1fr;gap:5rem;align-items:start}
+.book-visual{background:var(--charcoal);padding:2.8rem 2.2rem;text-align:center;position:relative;box-shadow:10px 10px 0 var(--gold-xl)}
+.book-visual::before{content:'';position:absolute;inset:10px;border:1px solid rgba(184,149,90,.18);pointer-events:none}
+.book-badge{font-size:.61rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem}
+.book-kill{font-family:var(--serif);font-size:1.1rem;color:rgba(255,255,255,.45);font-style:italic;margin-bottom:.15rem}
+.book-busy{font-family:var(--serif);font-size:3rem;font-weight:700;color:var(--white);line-height:1;margin-bottom:.5rem}
+.book-sub{font-family:var(--serif);font-size:.88rem;color:rgba(255,255,255,.42);font-style:italic;margin-bottom:1.3rem;line-height:1.5}
+.roar{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin:1.2rem 0}
+.r1{background:#7a3232}.r2{background:#2f5c3e}.r3{background:#25406b}.r4{background:#4e2e6e}
+.roar-c{padding:.75rem .25rem;text-align:center}
+.roar-l{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--white);display:block;line-height:1}
+.roar-w{font-size:.55rem;color:rgba(255,255,255,.65);letter-spacing:.1em;text-transform:uppercase;display:block;margin-top:.2rem}
+.book-by{font-size:.67rem;color:rgba(255,255,255,.3);letter-spacing:.09em;margin-top:1.1rem}
+.book-tag{display:inline-block;font-size:.61rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;background:var(--gold-xl);color:var(--gold);padding:.22rem .7rem;margin-bottom:1.2rem}
+.book-p{font-size:.9rem;color:#444;line-height:1.85;margin-bottom:1rem}
+.book-thesis{background:var(--off);border-left:3px solid var(--gold);padding:1.3rem 1.7rem;margin:1.6rem 0}
+.book-thesis p{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--charcoal);line-height:1.55}
+.roar-explain{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--warm);margin:1.8rem 0}
+.roar-item{background:var(--white);padding:1rem 1.2rem}
+.roar-item-letter{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.15rem}
+.roar-item-word{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:.35rem}
+.roar-item-desc{font-size:.79rem;color:#555;line-height:1.6}
+.praise-head{font-size:.63rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem;margin-top:2rem}
+.praise{padding:1.1rem 0;border-top:1px solid var(--warm)}
+.praise-q{font-family:var(--serif);font-size:.96rem;color:#333;font-style:italic;line-height:1.65;margin-bottom:.45rem}
+.praise-by{font-size:.68rem;color:var(--mid);font-weight:500}
+.praise-by strong{color:var(--charcoal)}
+.book-cta{display:inline-block;margin-top:1.6rem;background:var(--charcoal);color:var(--white);padding:.85rem 2rem;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.book-cta:hover{background:var(--gold)}
+
+/* PROGRAMMES */
+#programs{background:var(--off)}
+.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.prog-card{background:var(--white);padding:2.5rem;border-left:3px solid transparent;transition:border-color .3s}
+.prog-card:hover{border-color:var(--gold)}
+.prog-tag{font-size:.61rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem;display:flex;align-items:center;gap:.45rem}
+.prog-tag::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold)}
+.prog-name{font-family:var(--serif);font-size:1.55rem;font-weight:600;color:var(--charcoal);line-height:1.2;margin-bottom:.3rem}
+.prog-by{font-size:.7rem;color:var(--mid);margin-bottom:1.1rem}
+.prog-price{display:inline-block;font-size:.7rem;font-weight:600;background:var(--charcoal);color:var(--gold-l);padding:.3rem .85rem;margin-bottom:1.1rem;letter-spacing:.05em}
+.prog-desc{font-size:.86rem;color:#555;line-height:1.78;margin-bottom:1.4rem}
+.prog-link{font-size:.68rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--charcoal);text-decoration:none;display:inline-flex;align-items:center;gap:.45rem;transition:color .2s}
+.prog-link:hover{color:var(--gold)}
+.prog-link::after{content:'→'}
+.prog-features{list-style:none;margin-bottom:1.4rem}
+.prog-features li{font-size:.8rem;color:#555;padding:.38rem 0;border-top:1px solid var(--warm);display:flex;align-items:flex-start;gap:.5rem}
+.prog-features li::before{content:'·';color:var(--gold);font-size:1rem;line-height:1.2;flex-shrink:0}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--charcoal)}
+.testi-tabs{display:flex;gap:2px;margin-bottom:2.5rem}
+.ttab{background:rgba(255,255,255,.07);color:rgba(255,255,255,.4);border:none;padding:.65rem 1.5rem;font-family:var(--sans);font-size:.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.ttab:hover{background:rgba(255,255,255,.1);color:rgba(255,255,255,.65)}
+.ttab.active{background:var(--gold);color:var(--charcoal)}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.tcard{background:#202020;padding:2.1rem;position:relative}
+.tcard::before{content:'"';font-family:var(--serif);font-size:4.5rem;color:var(--gold);opacity:.12;position:absolute;top:.3rem;left:1rem;line-height:1;pointer-events:none}
+.tcard-text{font-family:var(--serif);font-size:.98rem;color:rgba(255,255,255,.7);font-style:italic;line-height:1.68;margin-bottom:1.4rem;padding-top:1rem;position:relative;z-index:1}
+.tcard-meta{display:flex;align-items:center;gap:.85rem;border-top:1px solid rgba(255,255,255,.07);padding-top:1.1rem}
+.tcard-av{width:36px;height:36px;border-radius:50%;background:rgba(184,149,90,.15);border:1px solid rgba(184,149,90,.25);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--gold);flex-shrink:0}
+.tcard-name{font-size:.8rem;font-weight:600;color:var(--white)}
+.tcard-role{font-size:.68rem;color:var(--mid);margin-top:.1rem}
+.tcard-wide{grid-column:span 2}
+.tcard-wide .tcard-text{font-size:1.05rem}
+
+/* TEAM */
+#team{background:var(--off)}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.team-card{background:var(--white);padding:1.6rem 1.3rem;text-align:center}
+.team-av{width:60px;height:60px;border-radius:50%;background:var(--warm);border:2px solid var(--gold-xl);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--charcoal);margin:0 auto .9rem}
+.team-name{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--charcoal);margin-bottom:.2rem}
+.team-role{font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.team-bio{font-size:.75rem;color:var(--mid);line-height:1.5}
+
+/* CONTACT */
+#contact{background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:start}
+.contact-intro{font-family:var(--serif);font-size:1.05rem;color:#555;font-style:italic;line-height:1.65;margin-bottom:2.3rem}
+.contact-items{display:flex;flex-direction:column;gap:.9rem}
+.c-item{display:flex;align-items:center;gap:1rem;padding:.95rem 1.1rem;background:var(--off);border:1px solid var(--warm);text-decoration:none;transition:border-color .2s}
+.c-item:hover{border-color:var(--gold)}
+.c-icon{width:34px;height:34px;border:1px solid rgba(184,149,90,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-icon svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.c-label{font-size:.62rem;color:var(--mid);letter-spacing:.11em;text-transform:uppercase;display:block}
+.c-val{font-size:.84rem;color:var(--charcoal);display:block;margin-top:.1rem}
+.cform{display:flex;flex-direction:column;gap:.85rem}
+.cform-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.cfield{display:flex;flex-direction:column;gap:.32rem}
+.cfield label{font-size:.62rem;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--mid)}
+.cfield input,.cfield select,.cfield textarea{background:var(--white);border:1px solid var(--warm);color:var(--charcoal);padding:.72rem .95rem;font-family:var(--sans);font-size:.85rem;outline:none;transition:border-color .2s;width:100%}
+.cfield input:focus,.cfield select:focus,.cfield textarea:focus{border-color:var(--gold)}
+.cfield textarea{height:105px;resize:vertical}
+.c-submit{background:var(--charcoal);color:var(--white);border:none;padding:.88rem 2rem;font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s;align-self:flex-start;margin-top:.3rem}
+.c-submit:hover{background:var(--gold)}
+
+/* FOOTER */
+footer{background:var(--ink);padding:2.5rem 9%}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:rgba(255,255,255,.8);margin-bottom:.7rem}
+.footer-brand span{color:var(--gold)}
+.footer-tagline{font-size:.78rem;color:rgba(255,255,255,.3);line-height:1.7;margin-bottom:1.2rem}
+.footer-socials{display:flex;gap:.6rem;flex-wrap:wrap}
+.f-social{width:32px;height:32px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:border-color .2s}
+.f-social:hover{border-color:var(--gold)}
+.f-social svg{width:13px;height:13px;stroke:rgba(255,255,255,.4);fill:none;stroke-width:1.5}
+.f-social:hover svg{stroke:var(--gold)}
+.footer-col-title{font-size:.63rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.footer-col ul a{font-size:.78rem;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.66rem;color:rgba(255,255,255,.2)}
+.footer-addr{font-size:.65rem;color:rgba(255,255,255,.18);text-align:right;line-height:1.6}
+
+/* MOBILE */
+@media(max-width:1200px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)!important}
+  .lenses-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;min-height:auto}
+  .hero-l{padding:4.5rem 7% 3rem}
+  .hero-r{padding:2.5rem 7% 4rem}
+  .about-grid,.book-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
+  .badge{display:none}
+  .svc-grid,.prog-grid,.clients-grid,.purpose-values{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .tcard-wide{grid-column:auto}
+  .cform-row,.roar-explain{grid-template-columns:1fr}
+  .lenses-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  nav{padding:0 5%}
+  .nav-links{display:none}
+  section{padding:4rem 6%}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .footer-addr{text-align:center}
+}
+
+/* ── ABOUT — full width, 2-col content grid ── */
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-body p{font-size:.92rem;color:#444;margin-bottom:1.1rem;line-height:1.82}
+@media(max-width:900px){.about-inner{grid-template-columns:1fr}}
+
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr}
+  .hero-photo-col{height:60vw;max-height:420px}
+  .hero-content{padding:4rem 7% 4rem}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  nav{padding:0 5%}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="logo">Manoj <span>Onkar</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#book">Book</a></li>
+    <li><a href="#independent-director">Board</a></li><li><a href="#programs">Programmes</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#team">Team</a></li>
+  </ul>
+  <a href="#contact" class="nav-btn">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-photo-col">
+    <img src="data:image/jpeg;base64,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" alt="Manoj Onkar">
+  </div>
+  <div class="hero-content">
+    <div class="eyebrow">Management Innovations</div>
+    <h1 class="hero-name">
+      Manoj Onkar
+      <span>Reinventing Management</span>
+    </h1>
+    <div class="hero-rule"></div>
+    <p class="hero-tag">Helping Leaders Build Extraordinary Organisations — Vision to Implementation.</p>
+    <div class="hero-pills">
+      <span class="pill">OD Consultant</span>
+      <span class="pill">Independent Director</span>
+      <span class="pill">Author</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">30<em>+</em></div><div class="hstat-l">Years of Experience</div></div>
+      <div class="hstat"><div class="hstat-n">50<em>K+</em></div><div class="hstat-l">Trained &amp; Coached</div></div>
+      <div class="hstat"><div class="hstat-n">500<em>+</em></div><div class="hstat-l">Trainers Certified</div></div>
+      <div class="hstat"><div class="hstat-n">10<em>+</em></div><div class="hstat-l">Countries</div></div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-gold">Work with Me</a>
+      <a href="#book" class="btn-outline">About the Book</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-body">
+      <div class="sec-label">About Manoj Onkar</div>
+      <h2 class="sec-title">A Career Built on<br>Transforming Organisations</h2>
+      <div class="sec-rule"></div>
+      <div class="about-inner">
+      <div class="about-bio">
+      <p>Manoj Onkar is the founder of <strong>Management Innovations</strong> — an organisation-development ecosystem with a singular mission: <em>Reinventing Management and Helping Leaders Build Extraordinary Organisations.</em></p>
+      <p>Over 30 years, he and his team have worked across India, Thailand, the Philippines, and more than 10 countries, helping organisations move from intention to genuine, sustained change. He has trained and coached over <strong>50,000 people</strong> across 30+ industries, and has personally trained and certified over <strong>500 trainers, coaches and educators</strong>.</p>
+      <p>He is the creator of <strong>ODeX</strong> (Extraordinary Organizations) and the <strong>CFRO Workshop</strong> (Creating Future-Ready Organizations) — both grounded in Theory U by Dr. Otto Scharmer of MIT Sloan, competitive strategy, systems thinking, and 30 years of direct implementation experience. His work integrates organisation development, leadership transformation, strategy, talent partnership, and execution support.</p>
+      <p>Earlier, Manoj served as Master Trainer and Head of International Partnerships at <strong>NIS Sparta (Reliance Group)</strong> — at one time Asia's largest corporate training organisation — and as National and Global Faculty with <strong>Landmark Education (now Landmark Worldwide)</strong>, the world's largest personal transformation organisation.</p>
+      <p>He was privileged to deliver customised leadership programmes for the <strong>Chief Minister of Gujarat, Shri Narendra Modi</strong> (now Prime Minister of India), along with his team of ministers and IAS officers. One of his Thailand-based clients was <strong>awarded by their Prime Minister</strong> as Best Managed SME following a two-year OD intervention.</p>
+      </div><!-- /about-bio -->
+      <div class="about-right">
+      <div class="clients-label">Notable Clients &amp; Institutions</div>
+      <div class="clients-grid">
+        <div class="client-chip">Reliance Group / NIS Sparta</div>
+        <div class="client-chip">Tata Steel</div>
+        <div class="client-chip">TCS</div>
+        <div class="client-chip">Accenture</div>
+        <div class="client-chip">Zydus Group</div>
+        <div class="client-chip">Kirloskar</div>
+        <div class="client-chip">ONGC</div>
+        <div class="client-chip">Kotak Foundation</div>
+        <div class="client-chip">GMDC</div>
+        <div class="client-chip">PayNearby</div>
+        <div class="client-chip">Kalorex Group</div>
+        <div class="client-chip">Lokayukta, Karnataka</div>
+        <div class="client-chip">Ami Polymer</div>
+        <div class="client-chip">Suryojasvi Group</div>
+        <div class="client-chip">SchoolNet India</div>
+      </div>
+      <div class="purpose-values">
+        <div class="pv-box">
+          <div class="pv-label">Core Purpose</div>
+          <div class="pv-text">Transform Organisations, in order to cause an Empowered Society.</div>
+        </div>
+        <div class="pv-box">
+          <div class="pv-label">Core Values</div>
+          <div class="pv-vals">Commitment to Client Success<br>Competent Contribution<br>Long-term Relationship<br>Result Orientation</div>
+        </div>
+      </div>
+      </div><!-- /about-right -->
+      </div><!-- /about-inner -->
+    </div><!-- /about-body -->
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sec-label sec-label--light">OD Consulting Services</div>
+  <h2 class="sec-title sec-title--white">World-Class Organisation Development</h2>
+  <div class="sec-rule"></div>
+  <p class="svc-intro">Management Innovations works where leadership, culture, strategy, and execution stop reinforcing one another — helping decision-makers diagnose the deeper pattern and translate vision into measurable implementation.</p>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-num">01</div>
+      <div class="svc-name">Organisation Development</div>
+      <div class="svc-sub">End-to-End OD Consulting</div>
+      <p class="svc-desc">Transforming businesses into Extraordinary Organisations through Leadership, Culture, Strategy, Execution and Talent Partnership.</p>
+      <ul class="svc-list"><li>Leadership Transformation</li><li>Cultural Transformation</li><li>Breakthrough Competitive Strategy</li><li>Strategy Execution</li><li>Talent Management</li></ul>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <div class="svc-name">Purpose &amp; Vision</div>
+      <div class="svc-sub">Articulation &amp; Implementation</div>
+      <p class="svc-desc">Why will people bring their head, heart and soul? Why will the society want you to succeed? We co-create answers that inspire lasting commitment.</p>
+      <ul class="svc-list"><li>Massive Transformative Purpose</li><li>Vision &amp; Mission Co-creation</li><li>Values Architecture</li><li>Purpose-to-Strategy Alignment</li></ul>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <div class="svc-name">Strategic Thinking</div>
+      <div class="svc-sub">Training &amp; Consulting</div>
+      <p class="svc-desc">A good strategy makes your company unique in the eyes of target customers. Do you see their pains and opportunities better than your competitors?</p>
+      <ul class="svc-list"><li>Competitive Strategy Design</li><li>Playing to Win (Roger Martin)</li><li>5 Choices Framework (AG Lafley)</li><li>Balanced Scorecard</li></ul>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">04</div>
+      <div class="svc-name">Leadership Transformation</div>
+      <div class="svc-sub">Individual &amp; Collective</div>
+      <p class="svc-desc">Shifting from Ego-centric to Eco-centric. From directing to co-creating. From past-based to sensing and actualising the emerging future.</p>
+      <ul class="svc-list"><li>From Leader to Leadership</li><li>From Individual to Collective</li><li>Theory U Applications</li><li>Sensing the Emerging Future</li></ul>
+    </div>
+  </div>
+  <div class="svc-grid svc-row2">
+    <div class="svc-card">
+      <div class="svc-num">05</div>
+      <div class="svc-name">Executive Coaching</div>
+      <div class="svc-sub">CEO &amp; Senior Leader Coaching</div>
+      <p class="svc-desc">Leaders at the top have challenges they cannot share with others. They need a thinking partner — to brainstorm, co-create, and evolve without limits.</p>
+      <ul class="svc-list"><li>1-on-1 Executive Coaching</li><li>CEO &amp; Founder Coaching</li><li>Removing Leadership Barriers</li><li>Building Organisations to Be Proud Of</li></ul>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">06</div>
+      <div class="svc-name">Coaching Skills</div>
+      <div class="svc-sub">For Leaders &amp; Managers</div>
+      <p class="svc-desc">Your job as a leader is not just to get the job done — it is to create an environment where your team reaches its highest potential.</p>
+      <ul class="svc-list"><li>Coaching4Managers Programme</li><li>Coaching Culture Building</li><li>Deep Listening &amp; Empathy</li><li>High-Potential Team Development</li></ul>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">07</div>
+      <div class="svc-name">Sales Transformation</div>
+      <div class="svc-sub">Consultative Selling &amp; Key Accounts</div>
+      <p class="svc-desc">Transform the sales approach from transactional to consultative value creation. Build stronger long-term strategic customer relationships.</p>
+      <ul class="svc-list"><li>Consultative Selling</li><li>Key Account Management</li><li>Sales Culture Transformation</li><li>Innovation Management</li></ul>
+    </div>
+    <div class="svc-card" style="background:#181818;border:1px solid rgba(184,149,90,.12)">
+      <div class="svc-num" style="color:rgba(184,149,90,.18)">→</div>
+      <div class="svc-name" style="color:rgba(255,255,255,.35);font-style:italic">Also Available</div>
+      <div class="svc-sub">Board-Level Engagement</div>
+      <p class="svc-desc" style="color:rgba(255,255,255,.28)">Manoj also serves as Independent Director on boards of organisations — a distinct offering, separate from consulting.</p>
+      <ul class="svc-list"><li style="color:rgba(255,255,255,.25)">See Independent Director section below</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- INDEPENDENT DIRECTOR -->
+<section id="independent-director" style="background:var(--charcoal);padding:6rem 9%">
+  <div class="sec-label sec-label--light">A Distinct Offering</div>
+  <h2 class="sec-title sec-title--white">Independent Director<br>&amp; Board Member</h2>
+  <div class="sec-rule"></div>
+
+  <!-- Framing statement -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-bottom:4rem">
+    <div>
+      <p style="font-family:var(--serif);font-size:1.18rem;font-style:italic;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:1.4rem">"Most boards already have enough oversight. What they often lack is someone who has spent 30 years inside organisations — who knows what actually drives performance, and what quietly destroys it."</p>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.42);line-height:1.82;margin-bottom:1.2rem">Manoj Onkar's offering as an Independent Director is <strong style="color:rgba(255,255,255,.7)">not about risk, compliance, or governance frameworks</strong>. It is about bringing deep, practical organisational intelligence to the board table — the kind that comes from 30+ years of working inside organisations across industries, geographies, and stages of growth.</p>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.42);line-height:1.82">Where most Independent Directors bring financial, legal, or sector expertise, Manoj brings something rarer: a rigorous, field-tested understanding of <strong style="color:rgba(255,255,255,.7)">how organisations actually work</strong> — what makes them grow, what makes them stall, and what leadership and culture choices determine the outcome.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.06);align-self:start">
+      <div style="background:rgba(255,255,255,.03);padding:1.6rem 1.4rem;text-align:center">
+        <div style="font-family:var(--serif);font-size:2.6rem;font-weight:600;color:var(--gold);line-height:1;margin-bottom:.3rem">30<span style="font-size:1.5rem">+</span></div>
+        <div style="font-size:.62rem;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase">Years of Practice</div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);padding:1.6rem 1.4rem;text-align:center">
+        <div style="font-family:var(--serif);font-size:2.6rem;font-weight:600;color:var(--gold);line-height:1;margin-bottom:.3rem">50<span style="font-size:1.5rem">K+</span></div>
+        <div style="font-size:.62rem;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase">Leaders Coached</div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);padding:1.6rem 1.4rem;text-align:center">
+        <div style="font-family:var(--serif);font-size:2.6rem;font-weight:600;color:var(--gold);line-height:1;margin-bottom:.3rem">30<span style="font-size:1.5rem">+</span></div>
+        <div style="font-size:.62rem;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase">Industries</div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);padding:1.6rem 1.4rem;text-align:center">
+        <div style="font-family:var(--serif);font-size:2.6rem;font-weight:600;color:var(--gold);line-height:1;margin-bottom:.3rem">10<span style="font-size:1.5rem">+</span></div>
+        <div style="font-size:.62rem;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase">Countries</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What Manoj contributes at the board level -->
+  <div style="margin-bottom:1rem">
+    <div style="font-size:.63rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem">What Manoj Contributes at the Board Table</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px">
+
+      <div style="background:#1e1e1e;padding:1.8rem 1.6rem;border-top:2px solid var(--gold)">
+        <div style="font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--white);margin-bottom:.5rem">Leadership Development</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.72">Evaluating leadership quality, depth, and pipeline. Advising on how the organisation is developing its next generation of leaders — and where the gaps are.</p>
+      </div>
+
+      <div style="background:#1e1e1e;padding:1.8rem 1.6rem;border-top:2px solid var(--gold)">
+        <div style="font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--white);margin-bottom:.5rem">Culture</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.72">Reading the culture beneath the stated values. Identifying culture gaps that are quietly constraining performance, growth, or talent retention.</p>
+      </div>
+
+      <div style="background:#1e1e1e;padding:1.8rem 1.6rem;border-top:2px solid var(--gold)">
+        <div style="font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--white);margin-bottom:.5rem">Business Models</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.72">Challenging whether the current business model is still fit for the market — and contributing to thinking on new or evolved models that sustain long-term relevance.</p>
+      </div>
+
+      <div style="background:#1e1e1e;padding:1.8rem 1.6rem;border-top:2px solid rgba(184,149,90,.3)">
+        <div style="font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--white);margin-bottom:.5rem">Strategy</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.72">Stress-testing strategic choices. Asking the hard questions about competitive differentiation, market positioning, and whether the strategy is genuinely distinctive.</p>
+      </div>
+
+      <div style="background:#1e1e1e;padding:1.8rem 1.6rem;border-top:2px solid rgba(184,149,90,.3)">
+        <div style="font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--white);margin-bottom:.5rem">Strategy Execution</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.72">Understanding why strategies stall between boardroom and frontline. Identifying the execution breakdowns — in alignment, accountability, or capability — before they become crises.</p>
+      </div>
+
+      <div style="background:#1e1e1e;padding:1.8rem 1.6rem;border-top:2px solid rgba(184,149,90,.3)">
+        <div style="font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--white);margin-bottom:.5rem">Talent Management</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.72">Evaluating talent strategy — how the organisation attracts, develops, and retains the people it needs for the future it is building.</p>
+      </div>
+
+      <div style="background:#1e1e1e;padding:1.8rem 1.6rem;border-top:2px solid rgba(184,149,90,.15)">
+        <div style="font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--white);margin-bottom:.5rem">New Product Development</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.72">Contributing to the thinking on innovation pipeline and NPD — from ideation culture to go-to-market readiness and the leadership behaviours that enable or block it.</p>
+      </div>
+
+      <div style="background:#1e1e1e;padding:1.8rem 1.6rem;border-top:2px solid rgba(184,149,90,.15)">
+        <div style="font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--white);margin-bottom:.5rem">Customer &amp; Market Intelligence</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.72">Probing the depth of customer understanding at the board level — whether the organisation truly sees customer pain, opportunity, and emerging expectations better than competitors.</p>
+      </div>
+
+      <div style="background:#1e1e1e;padding:1.8rem 1.6rem;border-top:2px solid rgba(184,149,90,.15)">
+        <div style="font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--white);margin-bottom:.5rem">CEO &amp; Executive Coaching</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.72">Serving as a trusted thinking partner for the CEO — an independent voice that helps the leader reflect, evolve, and make better decisions without the constraints of hierarchy.</p>
+      </div>
+
+      <div style="background:#1e1e1e;padding:1.8rem 1.6rem;border-top:2px solid rgba(184,149,90,.08)">
+        <div style="font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--white);margin-bottom:.5rem">Selling Skills &amp; Sales Management</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.72">Advising on the sales system — culture, capability, process, and management — and identifying where the organisation is leaving revenue and relationships on the table.</p>
+      </div>
+
+      <div style="background:#1e1e1e;padding:1.8rem 1.6rem;border-top:2px solid rgba(184,149,90,.08)">
+        <div style="font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--white);margin-bottom:.5rem">Service Excellence</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.72">Understanding whether service experience is a genuine competitive differentiator — or a liability. Advising on building cultures of service excellence from the inside out.</p>
+      </div>
+
+      <div style="background:#252525;padding:1.8rem 1.6rem;border-top:2px solid rgba(184,149,90,.08);display:flex;flex-direction:column;justify-content:center">
+        <div style="font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem">Best Fit For</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.72">Growth-stage companies · Family businesses transitioning to professional governance · SMEs seeking board-level strategic depth · Organisations at leadership succession or strategic inflection points</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="margin-top:3rem;display:flex;justify-content:center">
+    <a href="#contact" style="display:inline-block;background:var(--gold);color:var(--charcoal);padding:.9rem 2.8rem;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background .2s" onmouseover="this.style.background='var(--gold-l)'" onmouseout="this.style.background='var(--gold)'">Enquire about Board Engagement →</a>
+  </div>
+</section>
+
+
+<!-- 8 TRANSFORMATION LENSES -->
+<section id="lenses">
+  <div class="sec-label">The Transformation System</div>
+  <h2 class="sec-title">8 Lenses We Use to Build<br><em style="font-style:italic;color:var(--gold)">Extraordinary Organisations</em></h2>
+  <div class="sec-rule"></div>
+  <div class="lenses-grid">
+    <div class="lens-card"><div class="lens-num">01</div><div class="lens-name">Leadership Transformation</div><div class="lens-desc">Shift from ego-centric to eco-centric leadership — from directing to co-creating an extraordinary collective future.</div></div>
+    <div class="lens-card"><div class="lens-num">02</div><div class="lens-name">Culture Transformation</div><div class="lens-desc">Culture is the secret weapon. Deliberately design and embed the culture that makes extraordinary things happen.</div></div>
+    <div class="lens-card"><div class="lens-num">03</div><div class="lens-name">Massive Transformative Purpose</div><div class="lens-desc">Why will people bring their head, heart and soul? Discover a purpose that inspires lasting commitment across the organisation.</div></div>
+    <div class="lens-card"><div class="lens-num">04</div><div class="lens-name">Breakthrough Competitive Strategy</div><div class="lens-desc">Build the strategy that makes your organisation unique in the eyes of target customers — sustainable competitive advantage.</div></div>
+    <div class="lens-card"><div class="lens-num">05</div><div class="lens-name">Strategy Execution</div><div class="lens-desc">Strategy without execution is aimless. Translate intent into aligned action so teams play one common game.</div></div>
+    <div class="lens-card"><div class="lens-num">06</div><div class="lens-name">Talent Partnership</div><div class="lens-desc">Build systems for attracting, developing, and retaining exceptional talent to fuel your extraordinary future.</div></div>
+    <div class="lens-card"><div class="lens-num">07</div><div class="lens-name">Sales Transformation</div><div class="lens-desc">Transform your sales culture from transactional to consultative — creating sustainable growth through mindset and skill shifts.</div></div>
+    <div class="lens-card"><div class="lens-num">08</div><div class="lens-name">Innovation Culture</div><div class="lens-desc">Embed the mindset, systems, and habits that make continuous innovation part of your organisation's everyday DNA.</div></div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section id="book">
+  <div class="book-grid">
+    <div>
+      <div class="book-visual">
+        <div class="book-badge">Publishing 2026 · Management Innovations</div>
+        <div class="book-kill">Kill</div>
+        <div class="book-busy">BUSYness</div>
+        <div class="book-sub">Get High Performance<br>A Leader's Guide to 100X Impact</div>
+        <div class="roar">
+          <div class="roar-c r1"><span class="roar-l">R</span><span class="roar-w">Reflect</span></div>
+          <div class="roar-c r2"><span class="roar-l">O</span><span class="roar-w">Own</span></div>
+          <div class="roar-c r3"><span class="roar-l">A</span><span class="roar-w">Assert</span></div>
+          <div class="roar-c r4"><span class="roar-l">R</span><span class="roar-w">Run</span></div>
+        </div>
+        <div class="book-by">Manoj Onkar · Founder, Management Innovations</div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-label">Debut Book</div>
+      <h2 class="sec-title">Kill BUSYness,<br>Get High Performance</h2>
+      <div class="sec-rule"></div>
+      <span class="book-tag">Publishing 2026</span>
+      <p class="book-p">Hidden inside the word "business" is the word BUSY. Most leaders are running BUSY organisations — confusing movement with progress, activity with results, motion with meaning.</p>
+      <p class="book-p">Over 30 years of working with CEOs across India, Thailand, the Philippines, and beyond, one pattern appeared almost everywhere: BUSYness was killing their future. Not lack of effort. Not lack of intelligence. The problem was a leadership one — created at the top, normalised in the middle, and suffered at the bottom.</p>
+      <div class="book-thesis"><p>"An organisation that runs on follow-up runs on surveillance, not trust. Leaders deserve language this precise, and a way back this rigorous."</p></div>
+      <p class="book-p">This book introduces the <strong>ROAR model</strong> — a clear, demanding pathway from BUSYness to High Performance — and a 12-phase implementation blueprint for building an organisation where excellence is the norm.</p>
+      <div class="roar-explain">
+        <div class="roar-item"><div class="roar-item-letter">R</div><div class="roar-item-word">Reflect</div><div class="roar-item-desc">Confront the BUSYness you've created — the purpose gap, the strategy void, the competency compromises.</div></div>
+        <div class="roar-item"><div class="roar-item-letter">O</div><div class="roar-item-word">Own</div><div class="roar-item-desc">Take responsibility without excuses. You are the source of the good, the bad, and the ugly.</div></div>
+        <div class="roar-item"><div class="roar-item-letter">A</div><div class="roar-item-word">Assert</div><div class="roar-item-desc">Set non-negotiable standards — for yourself first, then for every level of the organisation.</div></div>
+        <div class="roar-item"><div class="roar-item-letter">R</div><div class="roar-item-word">Run</div><div class="roar-item-desc">Build High Performance that lasts — through 12 phases of world-class implementation.</div></div>
+      </div>
+      <div class="praise-head">Praise for Kill BUSYness</div>
+      <div class="praise"><p class="praise-q">"The leaders who will shape the next decade aren't the busiest ones; they're the most purposeful ones. Every serious CEO needs to read this book — not once, but at every stage of their leadership journey."</p><div class="praise-by"><strong>Nand Kishore Chaudhary</strong> · Founder, Jaipur Rugs</div></div>
+      <div class="praise"><p class="praise-q">"I find this book to be more fundamental than Six Sigma, Lean, and AI that I have studied over 30 years. It raises primal questions and answers them in a way which wakes and shakes a conscious leader."</p><div class="praise-by"><strong>Chetan Khosla</strong> · Chairman, Suryojasvi Group</div></div>
+      <div class="praise"><p class="praise-q">"Manoj's diagnosis stopped me cold: an organisation that runs on follow-up runs on surveillance, not trust. Leaders deserve language this precise."</p><div class="praise-by"><strong>Utpal Vaishnav</strong> · Founder, EightQor Group</div></div>
+      <a href="#contact" class="book-cta">Register Interest / Bulk Orders</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES -->
+<section id="programs">
+  <div class="sec-label">Flagship Programmes</div>
+  <h2 class="sec-title">Transformative Leadership Experiences</h2>
+  <div class="sec-rule"></div>
+  <div class="prog-grid">
+    <div class="prog-card">
+      <div class="prog-tag">Step 1 · Entry Point</div>
+      <div class="prog-name">CFRO Workshop</div>
+      <div class="prog-by">Creating Future-Ready Organizations · reinventorganizations.com</div>
+      <div class="prog-price">₹47,000 + GST &nbsp;|&nbsp; Groups: ₹40,000 + GST per person</div>
+      <p class="prog-desc">A high-leverage 2-day workshop grounded in Theory U by Dr. Otto Scharmer (MIT Sloan). Helps leaders step out of reactive management, see the system more clearly, and begin a more future-ready leadership shift. For CEOs, CXOs, Founders, Department Heads, and Change Agents.</p>
+      <ul class="prog-features">
+        <li>Deep Listening &amp; Empathy Walks</li>
+        <li>Symptoms → Systems Thinking</li>
+        <li>Case Clinic — Collective Intelligence</li>
+        <li>Ego to Eco Leadership Shift</li>
+        <li>Execution Roadmap &amp; Next Steps</li>
+      </ul>
+      <a href="https://www.reinventorganizations.com" target="_blank" class="prog-link">Learn More &amp; Register</a>
+    </div>
+    <div class="prog-card">
+      <div class="prog-tag">Step 2 · Flagship Journey · Jul–Dec 2026</div>
+      <div class="prog-name">ODeX — Extraordinary Organizations</div>
+      <div class="prog-by">6-Month Rigorous Journey · exoorg.com/ODeX</div>
+      <div class="prog-price">₹3,00,000 + taxes &nbsp;|&nbsp; USD $3,500 International</div>
+      <p class="prog-desc">A six-month high-touch leadership journey for founders, CEOs, directors, and senior leaders who want to redesign the organisation rather than solve one problem at a time. Integrates leadership, culture, strategy, execution, and talent partnership.</p>
+      <ul class="prog-features">
+        <li>6 Deep Learning Weekends (monthly)</li>
+        <li>18 Group Coaching Sessions (weekly Zoom)</li>
+        <li>Dedicated Support &amp; Peer Teams</li>
+        <li>Live Organisational Project Support</li>
+        <li>Open Cohort + In-House options available</li>
+      </ul>
+      <a href="https://www.exoorg.com/ODeX" target="_blank" class="prog-link">Explore ODeX</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="sec-label sec-label--light">What Leaders Say</div>
+  <h2 class="sec-title sec-title--white">In Their Own Words</h2>
+  <div class="sec-rule"></div>
+  <div class="testi-tabs">
+    <button class="ttab active" onclick="switchTab(this,'odex')">ODeX &amp; CFRO</button>
+    <button class="ttab" onclick="switchTab(this,'book')">Kill BUSYness — Book</button>
+  </div>
+  <div id="tab-odex" class="testi-grid">
+    <div class="tcard tcard-wide">
+      <p class="tcard-text">"Our group's founding team, including myself, recently completed the ODeX program expertly designed and led by Mr. Manoj Onkar. This program is, without a doubt, a game-changer for leaders and founders aiming to cultivate extraordinary organizations. Manoj's definition of 'extraordinary' — future-ready, people-centric (head, heart, and soul), and a positive societal force — resonated deeply. The program's impact was so significant that we've since enrolled a substantial group of 15 leaders and functional heads in the April 2025 cohort. I strongly endorse ODeX for all founders and leaders committed to building truly exceptional organizations."</p>
+      <div class="tcard-meta"><div class="tcard-av">CK</div><div><div class="tcard-name">Chetan Khosla</div><div class="tcard-role">Chairman &amp; Founder · Suryojasvi Group ★★★★★</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"Thank you for the ODeX program. What made it truly distinctive was that it didn't feel like a module we studied. It was leadership practiced in real time. The live exercises, stakeholder interviews, empathy walks, role plays, and case clinics forced me to step out of my assumptions. Viewing leadership as service to stakeholders is something I now feel daily."</p>
+      <div class="tcard-meta"><div class="tcard-av">NS</div><div><div class="tcard-name">Naveen Sharma</div><div class="tcard-role">Founder &amp; CEO · AutoSherpa | Yocoya | Transmon ★★★★★</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"The ODeX Programme has been a life-transforming experience. I am able to see the shift in my thinking and execution. The impact and lens to operate as an organization is completely different. The program influences communication, customers, processes, strategy and stakeholders. It helps create a massive purpose to sustain the universe and individuals."</p>
+      <div class="tcard-meta"><div class="tcard-av">AG</div><div><div class="tcard-name">Adesh Gothi</div><div class="tcard-role">Co-Founder · Amplus Subsidy Solutions ★★★★★</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"Happy to share that I recently completed the ODeX program. This six-month journey was transformative. It pushed boundaries and challenged our assumptions. The program delved deep into Deep Listening, the bedrock of strategic thinking. It explored principles like Theory U, Exponential Organizations, and the 5 Choices Framework of AG Lafley. I highly recommend this course to anyone willing to apply strategic thinking to change the world for the better."</p>
+      <div class="tcard-meta"><div class="tcard-av">AR</div><div><div class="tcard-name">Arindam Ghosh</div><div class="tcard-role">Sr. Vice President &amp; Head of Strategy · SchoolNet India ★★★★★</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"The founders and key managers in our organization have participated in sessions conducted by Mr. Manoj Onkar. These sessions have been immensely valuable. They have driven immediate and meaningful shifts in alignment and collaboration — visible not only within our leadership team but also in how we engage with customers and supplier partners."</p>
+      <div class="tcard-meta"><div class="tcard-av">VM</div><div><div class="tcard-name">Vishwanath Mosale</div><div class="tcard-role">Co-Founder &amp; Sr. VP, Head of Strategy · Suryojasvi Group ★★★★★</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"I had the opportunity to undergo the ODeX program training facilitated by Mr. Manoj Onkar. It proved to be a highly valuable learning experience — well structured, practical, and very impactful. We have collectively observed positive improvements in our professional approach as well as in personal effectiveness."</p>
+      <div class="tcard-meta"><div class="tcard-av">RM</div><div><div class="tcard-name">Rudrappa Mirekar</div><div class="tcard-role">CEO · Trasccon Interconnection Systems ★★★★★</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"I have attended multiple workshops and training programs led by Manoj Onkar. Each experience reinforced his reputation as a world-class trainer and OD consultant. Manoj has a unique ability to engage participants of all levels. His sessions combine theory, exercises and real-life examples. Participants develop a mindset geared toward continuous improvement."</p>
+      <div class="tcard-meta"><div class="tcard-av">AG2</div><div><div class="tcard-name">Alpesh Gandhi</div><div class="tcard-role">Managing Director · Ami Polymer ★★★★★</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"This ODeX program is one of its kind. It gave me an opportunity to practice learning while the course progressed. The coaching and mentoring from the faculty is immense. The group dynamics is phenomenal. The program challenges the status quo. It is a must-do program for serious OD professionals."</p>
+      <div class="tcard-meta"><div class="tcard-av">MM</div><div><div class="tcard-name">Manoj Mani</div><div class="tcard-role">Sr. Learning Professional · Accenture India ★★★★★</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"This training program was a truly transformative experience. It helped both personally and professionally. The program goes beyond conventional learning. It focuses on mindset, leadership behaviour and practical execution. The emphasis on self-awareness helped me reflect deeply on my leadership style. I highly recommend this program to leaders seeking meaningful change."</p>
+      <div class="tcard-meta"><div class="tcard-av">SS</div><div><div class="tcard-name">Surender Singh</div><div class="tcard-role">Founder ★★★★★</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"I joined this programme to understand basic foundations of organisation development and how to implement the same beyond theory and concepts. Whatever I have learnt, I was able to implement the same real time — with my fellow participants, at my current workplace, and at my other voluntary associations. Tools like deep listening, empathy walks, stakeholder interviews, 5 Choice Framework, Case Clinics are very powerful and independent of sector, size, stage of organization."</p>
+      <div class="tcard-meta"><div class="tcard-av">VB</div><div><div class="tcard-name">Vandana Bhansali</div><div class="tcard-role">HR Head ★★★★★</div></div></div>
+    </div>
+  </div>
+  <div id="tab-book" class="testi-grid" style="display:none">
+    <div class="tcard tcard-wide">
+      <p class="tcard-text">"Manoj's diagnosis stopped me cold: an organisation that runs on follow-up runs on surveillance, not trust. I had lived inside that organisation and built around it for years, without ever naming it. Leaders deserve language this precise, and a way back this rigorous. I have decided to partner with Manoj in spreading this movement."</p>
+      <div class="tcard-meta"><div class="tcard-av">UV</div><div><div class="tcard-name">Utpal Vaishnav</div><div class="tcard-role">Founder, EightQor Group</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"The leaders who will shape the next decade aren't the busiest ones; they're the most purposeful ones. Manoj Onkar has written the definitive guide for that transition. Every serious CEO needs to read this book — not once, but at every stage of their leadership journey."</p>
+      <div class="tcard-meta"><div class="tcard-av">NK</div><div><div class="tcard-name">Nand Kishore Chaudhary</div><div class="tcard-role">Founder, Jaipur Rugs</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"I have known Manoj Onkar for nearly 3 decades. Kill BUSYness combines insight, urgency, and actionable direction. The 90-day blueprint gives the concept real operational depth. A book that can genuinely shift how organisations think about performance, governance, and long-term impact."</p>
+      <div class="tcard-meta"><div class="tcard-av">MPS</div><div><div class="tcard-name">Manjula Pooja Shroff</div><div class="tcard-role">Founder Chairperson, MD &amp; CEO — Kalorex Group</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"I learned, practised and propagated Six Sigma, Lean, Theory of Constraints, Strategy, AI over 30 years. Yet, I find this book to be more fundamental. It raises primal questions… and then answers them in a way which wakes and shakes a conscious leader."</p>
+      <div class="tcard-meta"><div class="tcard-av">CK</div><div><div class="tcard-name">Chetan Khosla</div><div class="tcard-role">Chairman, Suryojasvi Group of Companies</div></div></div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-text">"Manoj has a special place in his heart for organisations. He is a creative thinker who brings his creativity to bear on the dilemmas leaders face today. If you approach this work as a mirror, it can be transformative — because the question it ultimately asks isn't about your organisation. It is about you."</p>
+      <div class="tcard-meta"><div class="tcard-av">FD</div><div><div class="tcard-name">Ferdi D'Souza</div><div class="tcard-role">Global Consultant &amp; Coach · Foreword, Kill BUSYness</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="sec-label">The Team</div>
+  <h2 class="sec-title">Senior Faculty &amp; Advisors</h2>
+  <div class="sec-rule"></div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-av" style="background:var(--charcoal);color:var(--gold)">MO</div>
+      <div class="team-name">Manoj Onkar</div>
+      <div class="team-role">Founder &amp; Lead Consultant</div>
+      <div class="team-bio">30+ years · 50K+ trained &amp; coached · 10+ countries</div>
+    </div>
+    <div class="team-card">
+      <div class="team-av">FD</div>
+      <div class="team-name">Ferdi D'Souza</div>
+      <div class="team-role">Senior Advisor</div>
+      <div class="team-bio">30 years in transformational training &amp; leadership development</div>
+    </div>
+    <div class="team-card">
+      <div class="team-av">AP</div>
+      <div class="team-name">Aljor Perreras</div>
+      <div class="team-role">Senior Advisor</div>
+      <div class="team-bio">20 years as Mindset Coach &amp; Performance Coach</div>
+    </div>
+    <div class="team-card">
+      <div class="team-av">VC</div>
+      <div class="team-name">Vivek Chopra</div>
+      <div class="team-role">Senior Advisor</div>
+      <div class="team-bio">30+ years in coaching, training &amp; organisational development</div>
+    </div>
+    <div class="team-card">
+      <div class="team-av">NS</div>
+      <div class="team-name">Nilesh Surana</div>
+      <div class="team-role">Senior Advisor</div>
+      <div class="team-bio">18 years in transformational training &amp; Lean Management</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="sec-label">Let's Connect</div>
+      <h2 class="sec-title">Start a Strategic Conversation</h2>
+      <div class="sec-rule"></div>
+      <p class="contact-intro">If your organisation is hitting a ceiling in leadership, culture, strategy, or execution — let's begin with a focused conversation about the real challenge and the most appropriate starting point.</p>
+      <div class="contact-items">
+        <a href="mailto:manoj@managementinnovations.co.in" class="c-item">
+          <div class="c-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
+          <div><span class="c-label">Email</span><span class="c-val">manoj@managementinnovations.co.in</span></div>
+        </a>
+        <a href="https://wa.me/919106456275" target="_blank" class="c-item">
+          <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+          <div><span class="c-label">WhatsApp (Messages Only)</span><span class="c-val">+91 91064 56275</span></div>
+        </a>
+        <a href="https://www.linkedin.com/in/vision-strategy-leadership-changemanagement-od" target="_blank" class="c-item">
+          <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div><span class="c-label">LinkedIn</span><span class="c-val">Vision · Strategy · Leadership · OD</span></div>
+        </a>
+        <a href="https://www.youtube.com/@emergingfutures" target="_blank" class="c-item">
+          <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></div>
+          <div><span class="c-label">YouTube</span><span class="c-val">@emergingfutures</span></div>
+        </a>
+
+      </div>
+    </div>
+    <form class="cform" onsubmit="handleSubmit(event)">
+      <div class="cform-row">
+        <div class="cfield"><label>First Name</label><input type="text" placeholder="First name" required></div>
+        <div class="cfield"><label>Last Name</label><input type="text" placeholder="Last name" required></div>
+      </div>
+      <div class="cform-row">
+        <div class="cfield"><label>Email</label><input type="email" placeholder="your@email.com" required></div>
+        <div class="cfield"><label>Organisation</label><input type="text" placeholder="Company / Organisation"></div>
+      </div>
+      <div class="cfield">
+        <label>Area of Interest</label>
+        <select>
+          <option>ODeX Flagship Program (6-Month)</option>
+          <option>CFRO Workshop — Future Ready Organizations (2-Day)</option>
+          <option>Leadership Transformation</option>
+          <option>Culture Transformation</option>
+          <option>Massive Transformative Purpose</option>
+          <option>Breakthrough Competitive Strategy</option>
+          <option>Strategy Execution</option>
+          <option>Talent Partnership</option>
+          <option>Sales Transformation</option>
+          <option>Innovation Culture</option>
+          <option>Executive Coaching</option>
+          <option>Independent Directorship / Board Engagement</option>
+          <option>Kill BUSYness — Book / Bulk Order</option>
+          <option>Not sure yet — let's talk</option>
+        </select>
+      </div>
+      <div class="cfield"><label>Message</label><textarea placeholder="Tell me briefly about your organisation and the challenge you are working on…"></textarea></div>
+      <button type="submit" class="c-submit">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">Manoj <span>Onkar</span></div>
+      <div class="footer-tagline">Founder, Management Innovations · OD Consultant · Independent Director · Author<br>Vision to Implementation</div>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/vision-strategy-leadership-changemanagement-od" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://www.youtube.com/@emergingfutures" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="mailto:manoj@managementinnovations.co.in" class="f-social"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></a>
+        <a href="https://wa.me/919106456275" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Practice Areas</div>
+      <ul>
+        <li><a href="#services">Leadership Transformation</a></li>
+        <li><a href="#services">Culture Transformation</a></li>
+        <li><a href="#services">Strategy Execution</a></li>
+        <li><a href="#services">Talent Partnership</a></li>
+        <li><a href="#lenses">8 Transformation Lenses</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Programmes</div>
+      <ul>
+        <li><a href="#programs">ODeX Flagship (6-Month)</a></li>
+        <li><a href="#programs">CFRO Workshop (2-Day)</a></li>
+        <li><a href="#book">Kill BUSYness — Book</a></li>
+        <li><a href="https://www.exoorg.com" target="_blank">Alumni Network</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Connect</div>
+      <ul>
+        <li><a href="https://www.managementinnovations.in" target="_blank">managementinnovations.in</a></li>
+        <li><a href="https://www.managementinnovations.co.in" target="_blank">managementinnovations.co.in</a></li>
+        <li><a href="https://www.inventleadership.com" target="_blank">inventleadership.com</a></li>
+        <li><a href="https://www.exoorg.com/ODeX" target="_blank">exoorg.com/ODeX</a></li>
+        <li><a href="#contact">Contact Manoj</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Manoj Onkar · Management Innovations · All rights reserved.</div>
+    <div class="footer-addr">manoj@managementinnovations.co.in · +91 91064 56275</div>
+  </div>
+</footer>
+
+<script>
+function switchTab(btn, tab) {
+  document.querySelectorAll('.ttab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-odex').style.display = tab === 'odex' ? 'grid' : 'none';
+  document.getElementById('tab-book').style.display = tab === 'book' ? 'grid' : 'none';
+}
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--gold)' : ''; });
+}, {passive:true});
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.c-submit');
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = '#3d6b4a';
+  setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; e.target.reset(); }, 3000);
+}
+</script>
+</body>
+</html>
